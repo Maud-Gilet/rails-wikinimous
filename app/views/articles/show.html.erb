@@ -1,4 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to 'Wikinimous', articles_url, { class: "navbar-brand"} %>
+  <%= link_to 'New Article', new_article_url, { class: "nav-link"} %>
+</nav>
+
+<div class="container show-container">
+  <div class="row show-title-row">
+    <%= @article.title %>
+    <%= link_to edit_article_url(@article) do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to article_url(@article), method: :delete,
+        data: { confirm: 'Are you sure?' },
+        remote: true do %>
+        <i class='far fa-trash-alt'></i>
+    <% end %>
+  </div>
+
+    <div class="row show-image">
+    <img src="#{Faker::LoremFlickr.image}" alt="">
+  </div>
+
+  <div class="row show-content-row">
+    <%= @article.content %>
+  </div>
+</div>
+
+
+

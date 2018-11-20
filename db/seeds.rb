@@ -13,7 +13,7 @@ seed_array = []
 10.times do
   h = {
     title: Faker::HowIMetYourMother.quote,
-    content: Faker::Food.description
+    content: Faker::Lorem.paragraph(50)
   }
   seed_array << h
 end
