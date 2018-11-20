@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+seed_array = []
+
+10.times do
+  h = {
+    title: Faker::HowIMetYourMother.quote,
+    content: Faker::Food.description
+  }
+  seed_array << h
+end
+
+seed_array.each do |item|
+  Article.create(item)
+end
